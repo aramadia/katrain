@@ -485,12 +485,17 @@
 <StatsBox>
     orientation: 'vertical'
     background_color: Theme.BOX_BACKGROUND_COLOR
-    labels: {'score':score_label,'winrate':winrate_label,'points':pointloss_label}
+    labels: {'score':score_label,'winrate':winrate_label,'winrate_loss':winrate_loss_label,'points':pointloss_label}
     StatsLabel:
         id: winrate_label
         label: i18n._('stats:winrate')
         text: root.winrate
         color: Theme.WINRATE_COLOR
+    StatsLabel:
+        id: winrate_loss_label
+        label: "% Lost"
+        text: root.winrate_lost
+        color: Theme.POINTLOSS_COLOR
     StatsLabel:
         id: score_label
         label: i18n._('stats:score')
@@ -501,6 +506,7 @@
         label: i18n._('stats:pointslost') if root.points_lost is None or root.points_lost > 0 else i18n._('stats:pointsgained')
         text: '{}: {:.1f}'.format(root.player,abs(root.points_lost)) if root.points_lost is not None else '...'
         color: Theme.POINTLOSS_COLOR
+
 
 <ScrollableLabel>:
     background_color: Theme.BOX_BACKGROUND_COLOR
@@ -627,9 +633,9 @@
         content_height: self.num_active * root.stat_height + EPSILON
         options_height: root.tab_option_height
         closed_label: 'closedlabel:movestats'
-        options: ['score','winrate','points']
-        option_colors: [Theme.SCORE_COLOR,Theme.WINRATE_COLOR,Theme.POINTLOSS_COLOR]
-        option_active: [True,True,True]
+        options: ['score','winrate','winrate_loss','points']
+        option_colors: [Theme.SCORE_COLOR,Theme.WINRATE_COLOR,Theme.WINRATE_COLOR, Theme.POINTLOSS_COLOR]
+        option_active: [True,True,True,True]
         on_option_state:
             for k, v in args[1].items(): stats.labels[k].hidden = not v
             self.num_active = sum(args[1].values(),0)

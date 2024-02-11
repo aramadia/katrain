@@ -1,0 +1,21 @@
+katrain.po doesn't update when pip3 install
+
+Is there a better way to build than pip3 install?
+
+It uses wheel to build.  I also noted that python katrain doesn't seem to rebuild the kivy files.
+
+Improvements
+Add Winrate Loss
+Add better theme for bluedot
+Better move guessing with something for getting close
+
+
+@staticmethod
+def player_sign(player):
+    return {"B": 1, "W": -1, None: 0}[player]
+
+if win_rate is not None:
+    return f"{'B' if win_rate > 0.5 else 'W'} {max(win_rate,1-win_rate):.1%}"
+
+
+WinRate Lost

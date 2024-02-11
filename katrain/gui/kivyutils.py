@@ -631,6 +631,7 @@ class CollapsablePanel(MDBoxLayout):
 
 class StatsBox(MDBoxLayout, BackgroundMixin):
     winrate = StringProperty("...")
+    winrate_lost = StringProperty("...")
     score = StringProperty("...")
     points_lost = NumericProperty(None, allownone=True)
     player = StringProperty("")

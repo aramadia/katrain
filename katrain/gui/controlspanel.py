@@ -166,11 +166,14 @@ class ControlsPanel(BoxLayout):
         if self.active_comment_node.analysis_exists:
             self.stats.score = self.active_comment_node.format_score() or ""
             self.stats.winrate = self.active_comment_node.format_winrate() or ""
+            self.stats.winrate_lost = self.active_comment_node.format_winrate_lost() or ""
             self.stats.points_lost = self.active_comment_node.points_lost
             self.stats.player = self.active_comment_node.player
         else:
             self.stats.score = ""
             self.stats.winrate = ""
+            
+            self.stats.winrate_lost = ""
             self.stats.points_lost = None
             self.stats.player = ""
 

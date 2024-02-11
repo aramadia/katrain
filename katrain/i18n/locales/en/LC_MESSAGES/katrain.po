@@ -257,12 +257,15 @@ msgstr "Score"
 msgid "tab:winrate"
 msgstr "Win Rate"
 
+msgid "tab:winrate_loss"
+msgstr "Win Rate Loss"
+
 #. shown on a graph tab
 msgid "tab:rank_est"
 msgstr "Rank Estimate"
 
 msgid "tab:points"
-msgstr "Point Loss"
+msgstr "Point Lafaaoss"
 
 msgid "tab:info"
 msgstr "Info"
@@ -278,7 +281,7 @@ msgstr "Score Graph"
 
 #. on the graph
 msgid "Jigo"
-msgstr "Jigo"
+msgstr "Jigffdo"
 
 msgid "closedlabel:movestats"
 msgstr "Move Stats"
@@ -307,6 +310,7 @@ msgstr "Analysis Options"
 
 msgid "stats:winrate"
 msgstr "Win Rate"
+
 
 msgid "stats:score"
 msgstr "Estimated Score"

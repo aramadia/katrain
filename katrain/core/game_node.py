@@ -303,6 +303,11 @@ class GameNode(SGFNode):
         win_rate = win_rate or self.winrate
         if win_rate is not None:
             return f"{'B' if win_rate > 0.5 else 'W'} {max(win_rate,1-win_rate):.1%}"
+        
+    
+    def format_winrate_lost(self, win_rate=None):
+        if self.winrate_lost:
+            return f"{self.winrate_lost:.1%}" 
 
     def move_policy_stats(self) -> Tuple[Optional[int], float, List]:
         single_move = self.move
@@ -389,6 +394,15 @@ class GameNode(SGFNode):
             parent_score = self.parent.score
             score = self.score
             return self.player_sign(single_move.player) * (parent_score - score)
+        
+    
+    @property
+    def winrate_lost(self) -> Optional[float]:
+        single_move = self.move
+        if single_move and self.parent and self.analysis_exists and self.parent.analysis_exists:
+            parent_winrate = self.parent.winrate
+            winrate = self.winrate
+            return self.player_sign(single_move.player) * (parent_winrate - winrate)    
 
     @property
     def parent_realized_points_lost(self) -> Optional[float]:
